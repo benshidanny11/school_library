@@ -12,8 +12,5 @@ class Student < Person
   end
 
   @classroom = classroom
-   if(!classroom.students.include?(self)){
-    classroom.students.push(self)
-   }
- 
+  classroom.students.push(self) if classroom.students.include?(self)
 end
