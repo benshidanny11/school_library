@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# School library
 
 > A library project that helps to record books, bollow books and get the bollowed books
 
