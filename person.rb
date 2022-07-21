@@ -4,7 +4,6 @@ require './book'
 class Person < Nameable
   attr_reader :id
   attr_accessor :name, :age, :rentals
-  
 
   INITIAL_PERMISSION = true
   def initialize(age, name = 'unknown', parent_permission = INITIAL_PERMISSION)

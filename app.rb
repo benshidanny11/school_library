@@ -124,7 +124,6 @@ class App
   # '5 - Create a rental',
 
   def handled_rental(selected_book, selected_person, selected_date)
- 
     @rentals << Rental.new(@books[selected_book], @persons[selected_person], selected_date)
 
     puts('Rental created')
