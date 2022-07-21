@@ -28,7 +28,7 @@ class App
     when 6
       rentals_list
     when 7
-      puts 'Thank you for using the app!'
+      puts 'Bye'
       exit
     end
   end
@@ -62,7 +62,7 @@ class App
 
   def person_list
     @persons.each do |individual|
-      puts "[#{individual.class}] Name: #{individual.name}, Age: #{individual.age}"
+      puts "[#{individual.class}]id: #{individual.id}, Name: #{individual.name}, Age: #{individual.age}"
     end
     run
   end
@@ -74,7 +74,7 @@ class App
     name = gets.chomp
     print 'Specialization: '
     specialization = gets.chomp
-    @persons << Teacher.new(specialization, name, age)
+    @persons << Teacher.new(age, name, specialization)
     puts 'create teacher'
   end
 
@@ -86,7 +86,7 @@ class App
     name = gets.chomp
     print 'Has parent permission? [Y/N]: '
     parent_permission = gets.chomp != 'n'
-    st = Student.new(name, age, parent_permission)
+    st = Student.new(age, name, parent_permission)
     @persons << st
     puts 'create student'
   end
@@ -124,6 +124,7 @@ class App
   # '5 - Create a rental',
 
   def handled_rental(selected_book, selected_person, selected_date)
+ 
     @rentals << Rental.new(@books[selected_book], @persons[selected_person], selected_date)
 
     puts('Rental created')
@@ -149,7 +150,6 @@ class App
       print('Date: ')
       selected_date = gets.chomp.to_s
       puts
-
       handled_rental(selected_book, selected_person, selected_date)
     else
       puts 'No books or no persons yet!'

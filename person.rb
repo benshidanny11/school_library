@@ -1,10 +1,13 @@
 require './decorate'
+require './rental'
+require './book'
 class Person < Nameable
-  attr_accessor :name, :age, :rentals
   attr_reader :id
+  attr_accessor :name, :age, :rentals
+  
 
   INITIAL_PERMISSION = true
-  def initialize(age, name = 'unknown', parent_permission = initial_permition)
+  def initialize(age, name = 'unknown', parent_permission = INITIAL_PERMISSION)
     super()
     @id = Random.rand(1..1000)
     @age = age
@@ -28,6 +31,6 @@ class Person < Nameable
   end
 
   def add_rental(book, date)
-    Rental.new(date, self, book)
+    Rental.new(date, book, self)
   end
 end
